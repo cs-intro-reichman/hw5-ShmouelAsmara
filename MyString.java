@@ -35,16 +35,18 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
         //// Replace the following statement with your code
-        boolean tester = false;
+
         int counter = 0;
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
-            if (str2.indexOf(c) == -1) {
-                return tester;
+            counter = str2.indexOf(c, counter);
+            if (counter == -1) {
+                return false;
             }
+            counter++;
 
         }
-        return tester = true;
+        return true;
 
     }
 
@@ -61,7 +63,9 @@ public class MyString {
         //// Replace the following statement with your code
         String str2 = "";
         for (int i = 0; i < str.length(); i++) {
-            str2 += " " + str.charAt(i);
+            if (i < str.length() - 1) {
+                str2 += " " + str.charAt(i);
+            }
         }
         return str2;
     }
@@ -98,8 +102,10 @@ public class MyString {
     public static String remove(String str1, String str2) {
         //// Replace the following statement with your code
         String str3 = "";
+
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
+
             if (str2.indexOf(c) == -1) {
                 str3 += c;
             }
