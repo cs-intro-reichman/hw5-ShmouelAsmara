@@ -106,14 +106,14 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
         //// Replace the following statement with your code
-        String str3 = "";
-
+        String str3 = str1;
         for (int i = 0; i < str1.length(); i++) {
-            char c = str1.charAt(i);
-
-            if (str2.indexOf(c) == -1) {
-                str3 += c;
+            char c = str2.charAt(i);
+            int index = str1.indexOf(c);
+            if (index != -1) {
+                str3 = str1.substring(0, index) + str1.substring(index + 1);
             }
+
         }
 
         return str3;
