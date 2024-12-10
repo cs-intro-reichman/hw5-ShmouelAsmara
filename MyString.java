@@ -106,12 +106,22 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
         //// Replace the following statement with your code
-        String str3 = str1;
+        String str3 = "";
+        if (str1.isEmpty()) {
+            return str2;
+        }
+        if (str1.equals(str2)) {
+            return str3;
+        }
+
+        str3 = str2;
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
-            int index = str2.indexOf(c);
-            if (index != -1) {
-                str3 = str1.substring(0, index) + str1.substring(index + 1);
+            int index = str3.indexOf(c);
+            if (str3.indexOf(c) == 0) {
+                str3 = str3.substring(c + 1);
+            } else {
+                str3 = str3.substring(0, index) + str1.substring(index + 1);
             }
 
         }
