@@ -115,8 +115,8 @@ public class MyString {
         }
 
         str3 = str2;
-        for (int i = 0; i < str1.length(); i++) {
-            char c = str1.charAt(i);
+        for (int i = 0; i < str2.length(); i++) {
+            char c = str2.charAt(i);
             int index = str3.indexOf(c);
             if (str3.indexOf(c) == 0) {
                 str3 = str3.substring(c + 1);
