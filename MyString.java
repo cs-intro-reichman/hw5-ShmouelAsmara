@@ -114,16 +114,14 @@ public class MyString {
             return str3;
         }
 
-        str3 = str2;
-        for (int i = 0; i < str2.length(); i++) {
-            char c = str2.charAt(i);
-            int index = str3.indexOf(c);
-            if (str3.indexOf(c) == 0) {
-                str3 = str3.substring(c + 1);
+        for (int i = 0; i < str1.length(); i++) {
+            char c = str1.charAt(i);
+            int index = str2.indexOf(c);
+            if (str2.indexOf(c) != -1) {
+                str2 = str2.substring(0, index) + str2.substring(index + 1);
             } else {
-                str3 = str3.substring(0, index) + str1.substring(index + 1);
+                str3 += c;
             }
-
         }
 
         return str3;
