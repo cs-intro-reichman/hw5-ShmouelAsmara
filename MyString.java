@@ -108,8 +108,8 @@ public class MyString {
         //// Replace the following statement with your code
         String str3 = str1;
         for (int i = 0; i < str1.length(); i++) {
-            char c = str2.charAt(i);
-            int index = str1.indexOf(c);
+            char c = str1.charAt(i);
+            int index = str2.indexOf(c);
             if (index != -1) {
                 str3 = str1.substring(0, index) + str1.substring(index + 1);
             }
