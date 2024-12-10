@@ -62,9 +62,14 @@ public class MyString {
     public static String spacedString(String str) {
         //// Replace the following statement with your code
         String str2 = "";
+        if (str.length() == 0) {
+            return str2;
+        }
+
         for (int i = 0; i < str.length(); i++) {
+            str2 += str.charAt(i);
             if (i < str.length() - 1) {
-                str2 += " " + str.charAt(i);
+                str2 += " ";
             }
         }
         return str2;
