@@ -35,15 +35,16 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
         //// Replace the following statement with your code
-        int counter = 0;
+        /// 
+        if (str1 == null || str2 == null) {
+            return false;
+        }
+
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
-            counter = str2.indexOf(c, counter);
-            if (counter == -1) {
+            if (countChar(str2, c) < countChar(str1, c)) {
                 return false;
             }
-            counter++;
-
         }
         return true;
 
