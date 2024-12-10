@@ -35,12 +35,14 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
         //// Replace the following statement with your code
-
+        int counter = 0;
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
-            if (str2.indexOf(c) == -1) {
+            counter = str2.indexOf(c, counter);
+            if (counter == -1) {
                 return false;
             }
+            counter++;
 
         }
         return true;
