@@ -46,6 +46,7 @@ public class MyString {
                 return false;
             }
         }
+
         return true;
 
     }
@@ -117,6 +118,7 @@ public class MyString {
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
             int index = str2.indexOf(c);
+            // -1 = not exciste,
             if (str2.indexOf(c) != -1) {
                 str2 = str2.substring(0, index) + str2.substring(index + 1);
             } else {
