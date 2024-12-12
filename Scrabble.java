@@ -111,7 +111,7 @@ public class Scrabble {
 	// 3. The user is prompted to enter another word, or '.' to end the hand.
 	public static void playHand(String hand) {
 		int n = hand.length();
-		int score = 0;
+		int sum = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it
 		// to represent
 		// the stream of characters coming from the keyboard. Used for reading the
@@ -131,7 +131,6 @@ public class Scrabble {
 
 			}
 			if (isWordInDictionary(input) && (MyString.subsetOf(input, hand))) {
-				int sum = 0;
 				hand = MyString.remove(hand, input);
 				n -= hand.length();
 				sum += Scrabble.wordScore(input);
@@ -145,9 +144,9 @@ public class Scrabble {
 				;
 		}
 		if (hand.length() == 0) {
-			System.out.println("Ran out of letters. Total score: " + score + " points");
+			System.out.println("Ran out of letters. Total score: " + sum + " points");
 		} else {
-			System.out.println("End of hand. Total score: " + score + " points");
+			System.out.println("End of hand. Total score: " + sum + " points");
 		}
 	}
 
@@ -187,10 +186,10 @@ public class Scrabble {
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
 		// testBuildingTheDictionary();
-		////testScrabbleScore();    
-		////testCreateHands();  
-		////testPlayHands();
-		////playGame();
+		//// testScrabbleScore();
+		//// testCreateHands();
+		//// testPlayHands();
+		//// playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
