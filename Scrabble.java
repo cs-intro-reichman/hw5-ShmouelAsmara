@@ -68,18 +68,14 @@ public class Scrabble {
 	// If the length of the word equals the length of the hand, adds 50 points to
 	// the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
+
+	static int sum = 0;
+
 	public static int wordScore(String word) {
 		//// Replace the following statement with your code
 		int sum = 0;
 		if (word.length() == 0) {
 			return 0;
-		}
-		if (word.length() == HAND_SIZE) {
-			sum += 50;
-		}
-
-		if (MyString.subsetOf("runi", word)) {
-			sum += 1000;
 		}
 
 		for (int i = 0; i < word.length(); i++) {
@@ -87,6 +83,14 @@ public class Scrabble {
 		}
 
 		sum *= word.length();
+
+		if (MyString.subsetOf("runi", word)) {
+			sum += 1000;
+		}
+
+		if (word.length() == HAND_SIZE) {
+			sum += 50;
+		}
 
 		return sum;
 	}
@@ -110,8 +114,7 @@ public class Scrabble {
 	// 2. The user gets the Scrabble points of the entered word.
 	// 3. The user is prompted to enter another word, or '.' to end the hand.
 	public static void playHand(String hand) {
-		int n = hand.length();
-		int sum = 0;
+		int n = hand.length() + 2;
 		// Declares the variable in to refer to an object of type In, and initializes it
 		// to represent
 		// the stream of characters coming from the keyboard. Used for reading the
@@ -126,7 +129,8 @@ public class Scrabble {
 			String input = in.readString();
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
-			if (input.equals("n")) {
+
+			if (input.equals(".")) {
 				break;
 
 			}
@@ -143,6 +147,7 @@ public class Scrabble {
 			if ((n > 0) == true ? true : false)
 				;
 		}
+
 		if (hand.length() == 0) {
 			System.out.println("Ran out of letters. Total score: " + sum + " points");
 		} else {
@@ -185,9 +190,9 @@ public class Scrabble {
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
-		// testBuildingTheDictionary();
+		testBuildingTheDictionary();
 		//// testScrabbleScore();
-		//// testCreateHands();
+		// testCreateHands();
 		//// testPlayHands();
 		//// playGame();
 	}
@@ -218,6 +223,6 @@ public class Scrabble {
 		init();
 		// playHand("ocostrza");
 		// playHand("arbffip");
-		// playHand("aretiin");
+		playHand("aretiin");
 	}
 }
