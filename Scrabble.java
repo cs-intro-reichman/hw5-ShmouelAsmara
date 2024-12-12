@@ -87,6 +87,7 @@ public class Scrabble {
 		}
 
 		sum *= word.length();
+
 		return sum;
 	}
 
@@ -125,13 +126,34 @@ public class Scrabble {
 			String input = in.readString();
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
-			break;
+			if (input.equals("n")) {
+				break;
+
+			}
+			if (isWordInDictionary(input) && (MyString.subsetOf(input, hand))) {
+				int sum = 0;
+				hand = MyString.remove(hand, input);
+				n -= hand.length();
+				sum += Scrabble.wordScore(input);
+				System.out.println("" + input + " earned " + (Scrabble.wordScore(input)) + " points. Score: "
+						+ sum + " points");
+				System.out.println();
+			} else if ((!isWordInDictionary(input)) || (!MyString.subsetOf(input, hand))) {
+				System.out.println("Invalid word. Try again.");
+			}
+			if ((n > 0) == true ? true : false)
+				;
 		}
 		if (hand.length() == 0) {
 			System.out.println("Ran out of letters. Total score: " + score + " points");
 		} else {
 			System.out.println("End of hand. Total score: " + score + " points");
 		}
+	}
+
+	public static String getRandomWord() {
+		int randomIndex = (int) (NUM_OF_WORDS * Math.random());
+		return DICTIONARY[randomIndex];
 	}
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand,
@@ -151,7 +173,14 @@ public class Scrabble {
 			String input = in.readString();
 			//// Replace the following break statement with code
 			//// that completes the game playing loop
-			break;
+			if (input.equals("n")) {
+				playHand(createHand());
+			}
+			if (input.equals("e")) {
+				break;
+			} else {
+				System.out.println("Enter n to deal a new hand, or e to end the game:");
+			}
 		}
 	}
 
